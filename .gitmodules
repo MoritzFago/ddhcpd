@@ -1,0 +1,3 @@
+[submodule "libnl-tiny"]
+	path = libnl-tiny
+	url = https://git.openwrt.org/project/libnl-tiny.git

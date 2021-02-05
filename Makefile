@@ -27,7 +27,10 @@ CFLAGS+= \
     -Wswitch-enum \
     -Wunreachable-code \
     -Winit-self \
-    `pkg-config --cflags libnl-3.0`
+    -Ilibnl-tiny \
+    -Ilibnl-tiny/include \
+    libnl-tiny/libnl-tiny.so \
+    -Llibnl-tiny
 
 CXXFLAGS+= \
     ${CFLAGS} \
@@ -38,7 +41,6 @@ CXXFLAGS+= \
 LFLAGS+= \
     -flto \
     -lm \
-    `pkg-config --libs libnl-3.0`
 
 ifeq ($(DEBUG),1)
 CFLAGS+= \

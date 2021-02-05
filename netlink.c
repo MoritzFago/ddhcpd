@@ -18,6 +18,19 @@
 #define NETLINK_TX_BUF_SIZE 8 * 1024
 #endif
 
+#define RTM_NEWLINK 16
+#define RTM_DELLINK 17
+#define RTNLGRP_LINK 1 // maybe, second element in an enum?
+struct ifinfomsg
+{
+	        unsigned char        ifi_family;
+		        unsigned char        __ifi_pad;
+			        unsigned short        ifi_type;                /* ARPHRD_* */
+				        int                ifi_index;                /* Link index        */
+					        unsigned        ifi_flags;                /* IFF_* flags        */
+						        unsigned        ifi_change;                /* IFF_* change mask */
+};
+
 static int callback(struct nl_msg *msg, void* vcfg) {
   ddhcp_config *config = (ddhcp_config*) vcfg;
   struct nlmsghdr* hdr = nlmsg_hdr(msg);
